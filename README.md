@@ -77,6 +77,7 @@ Successful builds are indicated with a green tick in the repository.
 
 ## Screenshots
 ` <img width="1365" height="713" alt="Screenshot 2026-05-29 205519" src="https://github.com/user-attachments/assets/4f44e891-8aba-49d3-a267-2d0874151846" />`
+' <img width="1226" height="156" alt="Screenshot 2026-05-29 234044" src="https://github.com/user-attachments/assets/4fe1fc7a-2062-4938-b9aa-89834268e334" />'
 
 ---
 
