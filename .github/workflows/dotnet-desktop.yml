@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: .NET Desktop Build
 
 on:
   push:
@@ -8,44 +8,29 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
+    runs-on: windows-latest   # Windows runner for WPF
 
-    runs-on: windows-latest
-
-    env:
-      Solution_Name: CyberSecurityChatBot.sln 
-      Test_Project_Path:                       
-      Wap_Project_Directory:                    
-      Wap_Project_Path:                         
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
-    - name: Install .NET Core
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    - name: Setup MSBuild.exe
+    - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    - name: Restore NuGet packages
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=${{ matrix.configuration }}
+    - name: Restore dependencies
+      run: msbuild CyberSecurityChatBot/t:Restore /p:Configuration=Release
 
     - name: Build solution
-      run: msbuild $env:Solution_Name /p:Configuration=${{ matrix.configuration }}
-
-    - name: Run tests
-      if: env.Test_Project_Path != ''
-      run: dotnet test $env:Test_Project_Path --configuration ${{ matrix.configuration }}
+      run: msbuild CyberSecurityChatBot/p:Configuration=Release
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: BuildOutput
-        path: |
-          **/bin/${{ matrix.configuration }}/
+        path: '**/bin/Release/'
+
