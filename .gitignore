@@ -23,7 +23,6 @@
 *.dll
 *.so.*
 
-
 # Fortran module files
 *.mod
 *.smod
@@ -61,9 +60,76 @@ compile_commands.json
 # vcpkg
 vcpkg_installed/
 
-# debug information files
+# Debug information files
 *.dwo
 
-# test output & cache
+# Test output & cache
 Testing/
 .cache/
+
+# =========================
+# .NET / Visual Studio
+# =========================
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Visual Studio cache
+.vs/
+.vscode/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# MSBuild logs
+msbuild.log
+
+# TFS
+$tf/
+
+# Rider / JetBrains
+.idea/
+
+# Backup & autosave
+*.bak
+*.swp
+*.tmp
+*.temp
+
+# Generated files
+*.generated.cs
+*.designer.cs
+
+# Publish output
+publish/
+dist/
+
+# Coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# Logs
+*.log
+
+# Others
+*.DS_Store
+Thumbs.db
+
